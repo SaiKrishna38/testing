@@ -19,7 +19,7 @@ jobs:
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws-region: ${{secrets.AWS_REGION}}
         - name: update lamdba function
-          run: aws lambda update-function-code --function-name ${{secrets.FUNCTION_NAME}} --image-uri ${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.${{secrets.AWS_REGION}}.amazonaws.com/{{secrets.AWS_ECR_REPO}}:latest
+          run: aws lambda update-function-code --function-name ${{secrets.FUNCTION_NAME}} --image-uri ${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.${{secrets.AWS_REGION}}.amazonaws.com/${{secrets.AWS_ECR_REPO}}:latest
         - name: Wait for Lambda update
           run: sleep 20
           
